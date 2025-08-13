@@ -37,6 +37,23 @@ server.registerResource(
   })
 );
 
+// Adiciona uma ferramenta para buscar drinks
+server.registerTool(
+  "fetch-drink",
+  {
+    title: "Drink Fetcher",
+    description: "Get cocktail data by drink name",
+    inputSchema: { drink: z.string() }
+  },
+  async ({ drink }) => {
+    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`);
+    const data = await response.text();
+    return {
+      content: [{ type: "text", text: data }]
+    };
+  }
+);
+
 // Inicia recebimento de mensagens via stdio
 const transport = new StdioServerTransport();
 await server.connect(transport);
