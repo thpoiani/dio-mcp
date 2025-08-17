@@ -1,0 +1,22 @@
+{
+  "name": "dio-mcp",
+  "version": "1.0.0",
+  "description": "Projeto MCP Server para dio-mcp",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "build": "tsc"
+  },
+  "keywords": ["mcp", "server", "typescript"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "typescript": "latest"
+  }
+}
